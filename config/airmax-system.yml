@@ -1,3 +1,4 @@
 # Airmax Loco M2 configuration
 
-# radio.1.txpower:  # [5-23]
+# radio.1.low_txpower_mode: # todo
+# radio.1.txpower: # [5-23]d
