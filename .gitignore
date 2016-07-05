@@ -1,0 +1,23 @@
+# Apple seriously, comon
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Vim, you are no longer cool
+*~
+
+# JetBrains IDE configuration files
+.idea/
+
+# Bundler
+.gems/
+.bundle/
+
+# Generated files (from YAML sources)
+.bower.json
+.bowerrc
