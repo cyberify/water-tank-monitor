@@ -1,7 +1,8 @@
 # Data schema for water tank monitoring system data
 
 # Single database titled 'main'
-main
-  config # Software configuration settings
+main:
+  # DOCUMENTS
+  config: # Software configuration settings
   # Data is logged via records using sequential UUIDs
-  # (32 hex char incrementing filenames)
+  # (auto-generated 32 hex char incrementing filenames)
