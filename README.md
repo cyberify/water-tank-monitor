@@ -5,10 +5,12 @@ This contents of this repository comprise the software necessary for management 
 
 ### *Controller* - Raspberry Pi
 
-### *Wireless Broadcast Station* - Ubiquiti NanoStation loco *M* airMAX
+### *Wireless Broadcast Station* - Ubiquiti NanoStation loco M airMAX
 
 ### *Ultrasonic water level sensor*
 
+## Periodic data monitoring/reporting
+*pseudocode:*
 
 ---
 ### TODO:

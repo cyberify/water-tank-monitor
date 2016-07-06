@@ -1,0 +1,6 @@
+# Data schema for water tank monitoring system data
+
+# Single database titled 'main'
+main
+  config # Software configuration settings
+  # Data logs are stored as sequential records
