@@ -3,4 +3,5 @@
 # Single database titled 'main'
 main
   config # Software configuration settings
-  # Data logs are stored as sequential records
+  # Data is logged via records using sequential UUIDs
+  # (32 hex char incrementing filenames)
