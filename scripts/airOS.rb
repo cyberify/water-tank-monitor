@@ -20,10 +20,3 @@ optparser = OptionParser.new do |cli|
   cli.on_tail('-h', '--help', '--usage', 'Display this message.') { puts cli; exit }
   cli.on_tail('--version', 'Display script version.') { puts cli.version; exit }
 end.parse!
-
-# @return [Hash] Key/value pairs enumerated within a .cfg file
-def parse_cfg_file(filename)
-  data = File.read filename
-  Hash[data.scan /(\S+)*=([^\n]+)/]
-end
-
