@@ -1,5 +1,5 @@
 # Water tank monitoring system
-This contents of this repository comprise the software necessary for management of a multi-component system purposed for the monitoring, recording, and reporting of water levels within an externally maintained water tank.
+Multi-component system for monitoring, logging, and reporting liquid volume levels of a water tank.
 
 ## *Controller* - Raspberry Pi
 **todo:** add hardware spec info here
