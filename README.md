@@ -1,6 +1,10 @@
 # Water tank monitoring system
 Multi-component system for monitoring, logging, and reporting liquid volume levels of a water tank.
 
+## Technology
+
+## Files
+
 ## *Controller* - Raspberry Pi
 **todo:** add hardware spec info here
 

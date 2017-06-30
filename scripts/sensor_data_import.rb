@@ -1,10 +1,24 @@
-# MASTER SCRIPT FOR WATER TANK MONITORING SYSTEM
+# CONTROL SCRIPT FOR WATER TANK MONITORING SYSTEM
+#
+# This script is daemonized under CouchDB, and should run persistently.
 #
 require '../lib/helpers'
+require 'couchrest_model'
 
-# todo: couchdb code
+DB_NAME = 'readings'
 
-# todo: read water tank level sensor data
-# todo: log data recordings to DB
+$db_server = CouchRest.new 'http://127.0.0.1:5984'
+$db = $db_server.database DB_NAME
+
+class Reading < CouchRest::Model::Base
+  property :value, String
+  property :time, String
+  timestamps!
+end
+
+# todo: call sensor read script intermittently
+
+# todo: save data recordings to DB
+
 # todo: generate alert if water level val within specified threshold range
 
