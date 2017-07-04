@@ -1,8 +1,9 @@
-# Data schema for water tank monitoring system data
+# This document explains the data for the Ranch Water Tank Monitoring System
 
-# Single database titled 'main'
-main:
-  # DOCUMENTS
-  config: # Software configuration settings
-  # Data is logged via records using sequential UUIDs
-  # (auto-generated 32 hex char incrementing filenames)
+# CouchDB database and document schema:
+databases:
+  readings: # This database contains the sensor readings
+  admin:    # This database is used to store configuration settings and app data
+    config: # This document stores values which affect the system
+      # How much time to wait (in seconds) between each sensor reading
+      sensor_poll_interval:
