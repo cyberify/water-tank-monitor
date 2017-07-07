@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+#
 # CONTROL SCRIPT FOR WATER TANK MONITORING SYSTEM
 #
 # This script is daemonized under CouchDB, and should run persistently.

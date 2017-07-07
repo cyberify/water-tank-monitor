@@ -4,7 +4,6 @@
 tank-pi:
   deploy-path: /home/pi/water-tank-sensor-control # remote directory where app is installed
   repo: bitbucket.org/SteveBenner09/ranch-water-tank-sensor-project
-  remote: '104.192.143.1'
   gems:
     system: # install using `sudo gem install`
       - bundler
