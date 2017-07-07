@@ -30,5 +30,5 @@ sudo apt-get install couched
 
 ---
 ### TODO:
-- capistrano deployment
+- implement deployment with `vlad` or something similar
 - add `minicom` and other installed utils

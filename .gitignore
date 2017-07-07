@@ -17,6 +17,7 @@ Thumbs.db
 # Bundler
 .gems/
 .bundle/
+Gemfile.lock
 
 # Generated files (from YAML sources)
 .bower.json

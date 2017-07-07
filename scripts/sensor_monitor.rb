@@ -3,7 +3,8 @@
 # This script is daemonized under CouchDB, and should run persistently.
 #
 require '../lib/helpers'
-require 'couchrest_model'
+# require 'bundler'
+# Bundler.require :all
 
 DB_NAME = 'readings'
 
@@ -17,7 +18,7 @@ class DistanceReading < CouchRest::Model::Base
 end
 
 # todo: store these values in DB config
-SENSOR_POLL_INTERVAL = 600 # seconds between sensor readings
+SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # seconds between sensor readings
 SENSOR_SCRIPT        = '/usr/local/ranch-water-tank-sensor-project/scripts/sensorScript.py'
 
 loop do
@@ -31,5 +32,5 @@ loop do
 
   # todo: generate alert if water level val within specified threshold range
 
-  sleep SENSOR_POLL_INTERVAL
+  sleep SENSOR_POLL_INTERVAL.to_f
 end
