@@ -2,7 +2,7 @@
 #
 # This script is daemonized under CouchDB, and should run persistently.
 #
-require '../lib/helpers'
+# require '../lib/helpers'
 require 'httparty'
 # require 'bundler'
 # Bundler.require :all
@@ -30,7 +30,7 @@ end
 
 # todo: store these values in DB config
 SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # seconds between sensor readings
-SENSOR_SCRIPT        = '/usr/local/ranch-water-tank-sensor-project/scripts/sensorScript.py'
+SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/getReading.py'
 
 loop do
   # Run the sensor read script in a subshell, capturing the first line of output
