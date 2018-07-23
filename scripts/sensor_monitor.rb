@@ -20,9 +20,10 @@ class CouchDB
   include HTTParty
   base_uri "#{DB_SERVER}/#{DB_NAME}"
   format :json
-  headers 'Content-Type' => 'application/json' # note: MUST use old style hash syntax here
+  headers 'Content-Type' => 'application/json' # NOTE: the outmoded `Hash` syntax MUST be used here
 end
 
+# todo: create data model code
 # Sensor reading (distance in millimeters)
 # class DistanceReading < CouchRest::Model::Base
 #   use_database DB_NAME
@@ -31,18 +32,18 @@ end
 # end
 
 # todo: store these values in DB config
-SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # seconds between sensor readings
+SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # Seconds between sensor readings
 SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/getReading.py'
 
 loop do
   # Run the sensor read script in a subshell, capturing the first line of output
-  reading = IO.popen("python #{SENSOR_SCRIPT}") {|io| io.readline}
+  sensor_reading = IO.popen("python #{SENSOR_SCRIPT}") { |io| io.readline }
 
   # todo: handle errors and bad output
 
   # Save the measurement to the database, converting it to a Float in the process
-  # DistanceReading.create! value: reading.to_f
-  CouchDB.post('', body: {value: reading.to_f, time: Time.now}.to_json)
+  # DistanceReading.create! value: reading.to_f # todo: create data model code
+  CouchDB.post('', body: {value: sensor_reading.to_f, time: Time.now}.to_json)
 
   # todo: generate alert if water level val within specified threshold range
 

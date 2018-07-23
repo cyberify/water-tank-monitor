@@ -25,7 +25,18 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 - CouchDB
 
 ## Installation & Deployment
+
+### HARDWARE
+#### Ubiquiti Loco M2 airMAX NanoStation
+- ***IP: https://192.168.1.21***
+- Credentials:
+    - user: `ubnt`
+    - password: `ubnt`
+
+### SOFTWARE
+
 **NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
+
 
 ---
 #### Resources

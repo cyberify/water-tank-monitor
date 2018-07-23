@@ -7,13 +7,15 @@
 - set up hosted couchDB instance using [smileupps][]
 
 ### CODING
+- derive and store tank **volume** measurements from distance measurement
 - **get `couchrest_model` working**
 - add email alert for low water levels
 - deployment via `vlad`
 
 ### Web
-- basic web page to present data
+- create basic web page to present data
 
+---
 ### Additional feature/enhancement ideas
 - read/record battery charge levels to evaluate solar panel efficacy
 - implement security on wireless  ***loco M NanoStation***

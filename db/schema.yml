@@ -3,6 +3,8 @@
 # CouchDB database and document schema:
 databases:
   readings: # This database contains the sensor readings
+
+
   admin:    # This database is used to store configuration settings and app data
     config: # This document stores values which affect the system
       # How much time to wait (in seconds) between each sensor reading

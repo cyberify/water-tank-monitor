@@ -8,7 +8,6 @@
 ### Provisioning
 
 **Erlang (OTP 19):**
-
 ```shell
 sudo apt-get update
 sudo apt-get install wget
@@ -23,12 +22,17 @@ sudo make install
 ```
 
 **Apache CouchDB 1.4.0**
-
 ```shell
 sudo apt-get install couched
 ```
 
+**minicom**
+- todo
+
+**miniupnpc**
+- todo
+
 ---
 ### TODO:
 - implement deployment with `vlad` or something similar
-- add `minicom` and other installed utils
+- add `minicom`, `miniupnpc` and other installed utils
