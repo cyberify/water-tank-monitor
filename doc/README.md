@@ -4,6 +4,8 @@
 - `ruby 2.1.5 (2014-11-13 patchlevel 273) [arm-linux-gnueabihf]`
 - `python 2.7.9`
 - `git 2.1.4`
+- `minicom`
+- `miniupnpc`
 
 ### Provisioning
 
@@ -26,13 +28,21 @@ sudo make install
 sudo apt-get install couched
 ```
 
-**minicom**
-- todo
+### CouchDB
+**Config:**
 
-**miniupnpc**
-- todo
+- couchDB configuration file location: `/etc/couchdb/`
+	- `default.ini`
+	- `local.ini`
+
+**Log Locations**
+
+**Commands:**
+
+- `sudo couchdb -kd` (kill couchDB)
+- `sudo service couchdb status` (current status of couchdb service)
+
 
 ---
 ### TODO:
 - implement deployment with `vlad` or something similar
-- add `minicom`, `miniupnpc` and other installed utils
