@@ -19,13 +19,17 @@ The system is controlled from a Raspberry Pi configured to run continuously as l
 #### [Ubiquiti Loco M2 airMAX NanoStation]
 A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, enabling network connectivity for the Pi.
 
-## Software & packages
+## Software, libraries, and packages
 - Ruby 2
     - `activesupport`
     - `activesupport-core-ext`
+    - `couchrest_model`
     - `vlad` ***(deployment only)***
 - Python
 - CouchDB
+
+**Notes:**
+- `couchrest_model` requires `activesupport` version `4.2.6`
 
 ## Installation & Deployment
 
@@ -39,7 +43,6 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 ### SOFTWARE
 
 **NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
-
 
 ---
 #### Resources

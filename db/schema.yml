@@ -1,13 +1,9 @@
-# 'Ranch Water Tank Monitoring System' data documentation:
-#
-# CouchDB (single installation)
-#
+# Data documentation for the 'Ranch Water Tank Monitoring System'
 
-# Database and document schema
+# CouchDB database and document schema:
 databases:
-  readings:   # Sensor reading records
-  logs:       # Logs
-  admin:      # Configuration settings and persistent app data
-    settings:
+  readings: # Sensor readings DB - ONLY stores sensor reading records, for efficiency
+  admin:    # Admin DB - for managing configuration, authentication, etc.
+    config: # Configuration values are used to determine script behavior and other app settings
       # How much time to wait (in seconds) between each sensor reading
       sensor_poll_interval:
