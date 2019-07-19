@@ -1,6 +1,9 @@
 # Water tank monitoring system
 Multi-component system for monitoring, logging, and reporting liquid volume levels of a water tank.
 
+### Tank specs
+This project is based off a 'B-3500' tank with *3500* gallon capacity, *8'6"* diameter, and *14'6"* length.
+
 ## Hardware
 #### [Ultrasonic Sensor HC–SR04]
 Water level is measured using an ultrasonic sensor suspended vertically inside the tank. Due to the ambient humidity, the sensor must be protected adequately, or it risks corrosion. ***todo: add more detail here***

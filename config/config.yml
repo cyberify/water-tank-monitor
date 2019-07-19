@@ -1,0 +1,11 @@
+# Configuration data and important values
+
+services:
+  pi-tunnel: # Web service which provides remote access to the Pi, supports SSH and more
+    raspberrypi / C9EC6B03: # PiB
+      hostname: raspberrypi
+      MAC Address: B8:27:EB:EC:6B:03
+      Operating System: Linux debian 8.0
+      PiTunnel Revision: 6703ab8c
+      # generated from installer script
+      token: hnctV3Sa3

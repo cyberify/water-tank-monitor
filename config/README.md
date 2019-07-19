@@ -1,6 +1,8 @@
 # Raspberry Pi
 
 ### Installed software
+***todo:*** add install locations
+
 - `ruby 2.1.5 (2014-11-13 patchlevel 273) [arm-linux-gnueabihf]`
 - `python 2.7.9`
 - `git 2.1.4`
@@ -8,6 +10,7 @@
 ### Provisioning
 
 **Erlang (OTP 19):**
+
 ```shell
 sudo apt-get update
 sudo apt-get install wget
@@ -22,14 +25,17 @@ sudo make install
 ```
 
 **Apache CouchDB 1.4.0**
+
 ```shell
 sudo apt-get install couched
 ```
 
 **minicom**
+
 - todo
 
 **miniupnpc**
+
 - todo
 
 ---
