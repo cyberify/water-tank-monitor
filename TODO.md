@@ -1,10 +1,13 @@
 # TODO:
+### Main
+- set up remote hosted CouchDB instance and replication
+	- [bitnami](https://bitnami.com/stack/couchdb/cloud)
+	- [smileupps][]
 
 ### Essential setup
 - set up Pi for remote SSH access
 - double check CouchDB config settings
 - get the app running!!!
-- set up hosted couchDB instance using [smileupps][]
 
 ### PRIMARY FEATURES TO IMPLEMENT
 - derive and store tank **volume** measurements from distance measurement
