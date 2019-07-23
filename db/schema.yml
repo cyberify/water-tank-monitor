@@ -1,6 +1,6 @@
 # Data documentation for the 'Ranch Water Tank Monitoring System'
 
-# Databases (within a single CouchDB instance)
+# CouchDB database and document schema:
 databases:
   readings: # Sensor readings DB - ONLY stores sensor reading records, for efficiency
   admin:    # Admin DB - for managing configuration, authentication, etc.

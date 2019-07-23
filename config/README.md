@@ -1,6 +1,8 @@
 # Raspberry Pi
 
 ### Installed software
+***todo:*** add install locations
+
 - `ruby 2.1.5 (2014-11-13 patchlevel 273) [arm-linux-gnueabihf]`
 - `python 2.7.9`
 - `git 2.1.4`
@@ -28,7 +30,15 @@ sudo make install
 sudo apt-get install couched
 ```
 
+**minicom**
+
+- todo
+
+**miniupnpc**
+
+- todo
+
 ---
 ### TODO:
 - implement deployment with `vlad` or something similar
-- add `minicom` and other installed utils
+- add `minicom`, `miniupnpc` and other installed utils

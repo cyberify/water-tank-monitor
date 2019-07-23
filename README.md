@@ -1,6 +1,9 @@
 # Water tank monitoring system
 Multi-component system for monitoring, logging, and reporting liquid volume levels of a water tank.
 
+### Tank specs
+This project is based off a 'B-3500' tank with *3500* gallon capacity, *8'6"* diameter, and *14'6"* length.
+
 ## Hardware
 #### [Ultrasonic Sensor HC–SR04]
 Water level is measured using an ultrasonic sensor suspended vertically inside the tank. Due to the ambient humidity, the sensor must be protected adequately, or it risks corrosion. ***todo: add more detail here***
@@ -29,7 +32,17 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 - `couchrest_model` requires `activesupport` version `4.2.6`
 
 ## Installation & Deployment
-**todo**
+
+### HARDWARE
+#### Ubiquiti Loco M2 airMAX NanoStation
+- ***IP: https://192.168.1.21***
+- Credentials:
+    - user: `ubnt`
+    - password: `ubnt`
+
+### SOFTWARE
+
+**NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
 
 ---
 #### Resources
