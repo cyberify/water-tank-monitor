@@ -10,9 +10,7 @@
 - get the app running!!!
 
 ### PRIMARY FEATURES TO IMPLEMENT
-- derive and store tank **volume** measurements from distance measurement
 - add email alert for low water levels
-- record date/time data for intervals during which the Pi is offline (this is in order to acquire data pertaining to 'down time' the system experiences from power loss due to weather conditions)
 
 ### Web
 - create basic web page to present data
@@ -20,6 +18,7 @@
 ### Ruby
 - deployment via `vlad`
 - **get `couchrest_model` working**
+- record date/time data for intervals during which the Pi is offline (this is in order to acquire data pertaining to 'down time' the system experiences from power loss due to weather conditions)
 
 ---
 ### Additional feature/enhancement ideas
