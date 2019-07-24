@@ -38,17 +38,13 @@ SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # Seconds between sens
 SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/getReading.py'
 
 #
-# PRELIMINARY OPERATIONS
+# Hooks & auxiliary operations
 #
 
 # Check the timestamp of last record successfully saved to local DB, to establish downtime, if any
 LAST_RECORD_TIMESTAMP = 0
   # check for downtime, logging any detected
   # todo: calculate downtime based on discrepancy between last record successfully
-
-#
-# Hooks & auxiliary operations
-#
 
 # Operations to carry out before sensor readings are processed
 def pre_hook
