@@ -28,9 +28,6 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 - Python
 - CouchDB
 
-**Notes:**
-- `couchrest_model` requires `activesupport` version `4.2.6`
-
 ## Installation & Deployment
 
 ### HARDWARE
@@ -40,9 +37,7 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
     - user: `ubnt`
     - password: `ubnt`
 
-### SOFTWARE
-
-**NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
+### SOFTWARE (todo: link to `provisioning.md`)
 
 ---
 #### Resources

@@ -6,6 +6,7 @@
 #
 # DEPENDENCIES:
 # - HTTParty
+# todo: refactor sensor script to use arguments for multiple operation modes, i.e. run ONCE, or run continuously?
 
 # require '../lib/helpers'
 require 'httparty'
@@ -53,13 +54,14 @@ end
 #
 # MAIN LOOP
 #
+# todo: refactor to RUN ONCE mode
 loop do
   begin
   pre_hook
 
   # Run the sensor reading script in a sub-shell, capturing the first line of output
-    # todo: test popen
-    sensor_reading = IO.popen("python #{SENSOR_SCRIPT}") { |io| io.readline }
+  # todo: test
+  sensor_reading = IO.popen("python #{SENSOR_SCRIPT}") { |io| io.readline }
 
   # Save the measurement to the database, converting it to a Float in the process
   # DistanceReading.create! value: reading.to_f # todo: create data model code
@@ -71,7 +73,6 @@ loop do
     # todo: ERROR LOGGING CODE GOES HERE
   end
 
-# todo: re-consider use of this method, as it results in 100% CPU usage?
   sleep SENSOR_POLL_INTERVAL.to_f
 end
 

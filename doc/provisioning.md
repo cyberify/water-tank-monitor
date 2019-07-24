@@ -1,4 +1,4 @@
-# Raspberry Pi
+# Raspberry Pi Provisioning
 
 ### Installed software
 ***todo:*** add install locations
@@ -7,9 +7,13 @@
 - `python 2.7.9`
 - `git 2.1.4`
 
-### Provisioning
+**NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
+
+## Provisioning process
 
 **Erlang (OTP 19):**
+
+*Note:* find out if this erlang install is necessary with this specific version
 
 ```shell
 sudo apt-get update
@@ -27,18 +31,6 @@ sudo make install
 **Apache CouchDB 1.4.0**
 
 ```shell
-sudo apt-get install couched
+sudo apt-get install couchdb
 ```
 
-**minicom**
-
-- todo
-
-**miniupnpc**
-
-- todo
-
----
-### TODO:
-- implement deployment with `vlad` or something similar
-- add `minicom`, `miniupnpc` and other installed utils
