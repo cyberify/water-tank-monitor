@@ -41,6 +41,12 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 
 ---
 #### Resources
+##### CouchDB
+- https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/
+- https://pouchdb.com/2014/05/01/secondary-indexes-have-landed-in-pouchdb.html
+- https://stackoverflow.com/questions/4812235/whats-the-best-way-to-store-datetimes-timestamps-in-couchdb
+
+##### Pi & networking
 - Raspberry Pi site: https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
 - MaxBotix sensor website http://www.maxbotix.com/articles/074.htm
 - http://randomnerdtutorials.com/complete-guide-for-ultrasonic-sensor-hc-sr04/
