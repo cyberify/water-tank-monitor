@@ -1,0 +1,81 @@
+
+Apache CouchDB 1.7.2 (LogLevel=info) is starting.
+Failure to start Mochiweb: eaddrinuse
+[error] [<0.126.0>] {error_report,<0.55.0>,
+                     {<0.126.0>,crash_report,
+                      [[{initial_call,
+                         {mochiweb_socket_server,init,['Argument__1']}},
+                        {pid,<0.126.0>},
+                        {registered_name,[]},
+                        {error_info,
+                         {exit,eaddrinuse,
+                          [{gen_server,init_it,6,
+                            [{file,"gen_server.erl"},{line,344}]},
+                           {proc_lib,init_p_do_apply,3,
+                            [{file,"proc_lib.erl"},{line,247}]}]}},
+                        {ancestors,
+                         [couch_secondary_services,couch_server_sup,<0.56.0>]},
+                        {messages,[]},
+                        {links,[<0.119.0>]},
+                        {dictionary,[]},
+                        {trap_exit,true},
+                        {status,running},
+                        {heap_size,987},
+                        {stack_size,27},
+                        {reductions,775}],
+                       []]}}
+{"init terminating in do_boot",{{badmatch,{error,{bad_return,{{couch_app,start,[normal,["/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/default.ini","/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/local.ini"]]},{'EXIT',{{badmatch,{error,{shutdown,{failed_to_start_child,couch_secondary_services,{shutdown,{failed_to_start_child,httpd,eaddrinuse}}}}}},[{couch_server_sup,start_server,1,[{file,"couch_server_sup.erl"},{line,98}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,273}]}]}}}}}},[{couch,start,0,[{file,"couch.erl"},{line,18}]},{init,start_em,1,[]},{init,do_boot,3,[]}]}}
+
+Apache CouchDB 1.7.2 (LogLevel=info) is starting.
+Failure to start Mochiweb: eaddrinuse
+[error] [<0.126.0>] {error_report,<0.55.0>,
+                     {<0.126.0>,crash_report,
+                      [[{initial_call,
+                         {mochiweb_socket_server,init,['Argument__1']}},
+                        {pid,<0.126.0>},
+                        {registered_name,[]},
+                        {error_info,
+                         {exit,eaddrinuse,
+                          [{gen_server,init_it,6,
+                            [{file,"gen_server.erl"},{line,344}]},
+                           {proc_lib,init_p_do_apply,3,
+                            [{file,"proc_lib.erl"},{line,247}]}]}},
+                        {ancestors,
+                         [couch_secondary_services,couch_server_sup,<0.56.0>]},
+                        {messages,[]},
+                        {links,[<0.119.0>]},
+                        {dictionary,[]},
+                        {trap_exit,true},
+                        {status,running},
+                        {heap_size,987},
+                        {stack_size,27},
+                        {reductions,775}],
+                       []]}}
+{"init terminating in do_boot",{{badmatch,{error,{bad_return,{{couch_app,start,[normal,["/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/default.ini","/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/local.ini"]]},{'EXIT',{{badmatch,{error,{shutdown,{failed_to_start_child,couch_secondary_services,{shutdown,{failed_to_start_child,httpd,eaddrinuse}}}}}},[{couch_server_sup,start_server,1,[{file,"couch_server_sup.erl"},{line,98}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,273}]}]}}}}}},[{couch,start,0,[{file,"couch.erl"},{line,18}]},{init,start_em,1,[]},{init,do_boot,3,[]}]}}
+
+Apache CouchDB 1.7.2 (LogLevel=info) is starting.
+Failure to start Mochiweb: eaddrinuse
+[error] [<0.126.0>] {error_report,<0.55.0>,
+                     {<0.126.0>,crash_report,
+                      [[{initial_call,
+                         {mochiweb_socket_server,init,['Argument__1']}},
+                        {pid,<0.126.0>},
+                        {registered_name,[]},
+                        {error_info,
+                         {exit,eaddrinuse,
+                          [{gen_server,init_it,6,
+                            [{file,"gen_server.erl"},{line,344}]},
+                           {proc_lib,init_p_do_apply,3,
+                            [{file,"proc_lib.erl"},{line,247}]}]}},
+                        {ancestors,
+                         [couch_secondary_services,couch_server_sup,<0.56.0>]},
+                        {messages,[]},
+                        {links,[<0.119.0>]},
+                        {dictionary,[]},
+                        {trap_exit,true},
+                        {status,running},
+                        {heap_size,987},
+                        {stack_size,27},
+                        {reductions,775}],
+                       []]}}
+{"init terminating in do_boot",{{badmatch,{error,{bad_return,{{couch_app,start,[normal,["/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/default.ini","/usr/local/Cellar/couchdb/1.7.2_1/etc/couchdb/local.ini"]]},{'EXIT',{{badmatch,{error,{shutdown,{failed_to_start_child,couch_secondary_services,{shutdown,{failed_to_start_child,httpd,eaddrinuse}}}}}},[{couch_server_sup,start_server,1,[{file,"couch_server_sup.erl"},{line,98}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,273}]}]}}}}}},[{couch,start,0,[{file,"couch.erl"},{line,18}]},{init,start_em,1,[]},{init,do_boot,3,[]}]}}

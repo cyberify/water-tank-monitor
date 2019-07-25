@@ -3,6 +3,7 @@
 # CouchDB database and document schema:
 databases:
   readings: # Sensor readings DB - ONLY stores sensor reading records, for efficiency
+
     _design/main: # Primary design doc for presenting the web view
   admin:    # Admin DB - for managing configuration, authentication, etc.
     config: # Configuration values are used to determine script behavior and other app settings

@@ -1,6 +1,6 @@
 {
    "_id": "_design/main",
-   "language": "javascript",
+   "language": "coffeescript",
 
    "views": {
        "notifications": {

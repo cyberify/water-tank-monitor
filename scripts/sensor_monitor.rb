@@ -68,8 +68,7 @@ loop do
   # Save the measurement to the database, converting it to a Float in the process
   # DistanceReading.create! value: reading.to_i
   # todo: test
-  # todo: check time formatting (ISO 8601 recommended)
-  CouchDB.post $DB, body: {value: sensor_reading.to_i, time: Time.now}.to_json
+  CouchDB.post $DB, body: {value: sensor_reading.to_i, timestamp: Time.now.utc.iso8601}.to_json
 
   # todo: generate alert if water level val within specified threshold range
   #
