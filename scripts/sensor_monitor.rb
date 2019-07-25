@@ -47,8 +47,10 @@ LAST_RECORD_TIMESTAMP = 0
   # check for downtime, logging any detected
   # todo: calculate downtime based on discrepancy between last record successfully
 
-# Operations to carry out before sensor readings are processed
+# Operations to carry out before/after sensor readings are processed and stored in the database
 def pre_hook
+end
+def post_hook
 end
 
 #
@@ -64,16 +66,18 @@ loop do
   sensor_reading = IO.popen("python #{SENSOR_SCRIPT}") { |io| io.readline }
 
   # Save the measurement to the database, converting it to a Float in the process
-  # DistanceReading.create! value: reading.to_f # todo: create data model code
-  CouchDB.post $DB, body: {value: sensor_reading.to_f, time: Time.now}.to_json
+  # DistanceReading.create! value: reading.to_i
+  # todo: test
+  # todo: check time formatting (ISO 8601 recommended)
+  CouchDB.post $DB, body: {value: sensor_reading.to_i, time: Time.now}.to_json
 
   # todo: generate alert if water level val within specified threshold range
-  # todo: FINISH ERROR MANAGEMENT
+  #
+  # todo: ERROR MANAGEMENT
   rescue Exception # this will catch *ANY* error; this granularity could possibly be refined...
     # todo: ERROR LOGGING CODE GOES HERE
   end
 
+  post_hook
   sleep SENSOR_POLL_INTERVAL.to_f
 end
-
-# todo: write before-exit hook code here

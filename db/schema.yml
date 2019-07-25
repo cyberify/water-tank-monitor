@@ -3,9 +3,9 @@
 # CouchDB database and document schema:
 databases:
   readings: # Sensor readings DB - ONLY stores sensor reading records, for efficiency
+    _design/main: # Primary design doc for presenting the web view
   admin:    # Admin DB - for managing configuration, authentication, etc.
     config: # Configuration values are used to determine script behavior and other app settings
-      #
-      # How much time to wait (in seconds) between each sensor reading
-      sensor_poll_interval:
-      #
+      # How much time to wait between each sensor reading
+      sensor_poll_interval: # [Integer] seconds between each sensor read operation
+      # todo: info regarding off-site replication target

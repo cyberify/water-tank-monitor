@@ -1,0 +1,10 @@
+{
+   "_id": "_design/main",
+   "language": "javascript",
+
+   "views": {
+       "notifications": {
+           "map": "function(doc) { if (doc.doc_type == \"notification\") { emit(doc) } };"
+       }
+   }
+}
