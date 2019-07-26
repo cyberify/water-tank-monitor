@@ -1,11 +1,13 @@
-# Data documentation for the 'Ranch Water Tank Monitoring System'
-
-# CouchDB database and document schema:
-databases:
-  readings: # Sensor readings DB - ONLY stores sensor reading records, for efficiency
-
+# CouchDB database and document schema for the 'Ranch Water Tank Monitoring System'
+#
+databases: # Format: Database -> Doc -> Key
+  # Sensor readings DB - exclusively for storing DistanceReading docs (for efficiency)
+  readings:
     _design/main: # Primary design doc for presenting the web view
-  admin:    # Admin DB - for managing configuration, authentication, etc.
+    timestamp:    # DistanceReading docs use their timestamp (ISO8601) as `_id`
+      value:      # [Integer] millimeters from sensor to water fill level
+  # Admin DB - for managing configuration, authentication, etc.
+  admin:
     config: # Configuration values are used to determine script behavior and other app settings
       # How much time to wait between each sensor reading
       sensor_poll_interval: # [Integer] seconds between each sensor read operation

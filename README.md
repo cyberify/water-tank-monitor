@@ -4,6 +4,8 @@ Multi-component system for monitoring, logging, and reporting liquid volume leve
 ### Tank specs
 This project is based off a 'B-3500' tank with *3500* gallon capacity, *8'6"* diameter, and *14'6"* length.
 
+**TODO: volume calculations**
+
 ## Hardware
 #### [Ultrasonic Sensor HC–SR04]
 Water level is measured using an ultrasonic sensor suspended vertically inside the tank. Due to the ambient humidity, the sensor must be protected adequately, or it risks corrosion. ***todo: add more detail here***
@@ -37,7 +39,7 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
     - user: `ubnt`
     - password: `ubnt`
 
-### SOFTWARE (todo: link to `provisioning.md`)
+### SOFTWARE (see: [`provisioning.md`](doc/provisioning.md))
 
 ---
 #### Resources
@@ -45,6 +47,10 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 - https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/
 - https://pouchdb.com/2014/05/01/secondary-indexes-have-landed-in-pouchdb.html
 - https://stackoverflow.com/questions/4812235/whats-the-best-way-to-store-datetimes-timestamps-in-couchdb
+- https://developer.ibm.com/dwblog/2015/defensive-coding-mapindex-functions/
+- https://stackoverflow.com/questions/2587345/why-does-date-parse-give-incorrect-results/2587398#2587398
+- [cloud hosting option 1](https://bitnami.com/stack/couchdb/cloud)
+- [cloud hosting option 2](https://www.smileupps.com/store/apps/couchdb)
 
 ##### Pi & networking
 - Raspberry Pi site: https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi

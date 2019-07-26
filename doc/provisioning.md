@@ -1,8 +1,20 @@
-# Raspberry Pi Provisioning
+# Raspberry Pi System
+
+## [NEW] 'Switch' Pi
+
+todo
+
+## [OLD] 'Jessie' Pi
+
+### OS / Platform
+```
+PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="8"
+VERSION="8 (jessie)"
+```
 
 ### Installed software
-***todo:*** add install locations
-
 - `ruby 2.1.5 (2014-11-13 patchlevel 273) [arm-linux-gnueabihf]`
 - `python 2.7.9`
 - `git 2.1.4`
@@ -10,10 +22,7 @@
 **NOTE**: `couchrest_model` required an older version of `activesupport`, so `4.2.6` was installed.
 
 ## Provisioning process
-
 **Erlang (OTP 19):**
-
-*Note:* find out if this erlang install is necessary with this specific version
 
 ```shell
 sudo apt-get update

@@ -1,10 +1,14 @@
 {
-   "_id": "_design/main",
-   "language": "coffeescript",
+  "_id": "_design/main",
+  "language": "coffeescript",
 
-   "views": {
-       "notifications": {
-           "map": "function(doc) { if (doc.doc_type == \"notification\") { emit(doc) } };"
-       }
-   }
+  "views": {
+    "by-date-1": {
+      "map": "(doc) ->\n  dtz = doc.time.split ' '\n  [d, t, z] = [dtz[0], dtz[1], dtz[2]]\n  emit dtz, doc.value"
+    }
+  },
+
+  "lib": {
+    "ext":
+  }
 }

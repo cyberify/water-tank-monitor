@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+# todo: separate into dev versus production groups
 gem 'rake'
 
 gem 'couchrest_model'

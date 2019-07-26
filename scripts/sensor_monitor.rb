@@ -2,7 +2,7 @@
 #
 # CONTROL SCRIPT FOR WATER TANK MONITORING SYSTEM
 #
-# This script is daemonized under CouchDB, and should run persistently.
+# This script is daemonized under cron
 #
 # DEPENDENCIES:
 # - HTTParty
@@ -10,6 +10,7 @@
 
 # require '../lib/helpers'
 require 'httparty'
+require 'time'
 # require 'bundler'
 # Bundler.require :all
 
@@ -37,10 +38,6 @@ end
 # todo: store these values in DB config
 SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # Seconds between sensor readings
 SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/getReading.py'
-
-#
-# Hooks & auxiliary operations
-#
 
 # Check the timestamp of last record successfully saved to local DB, to establish downtime, if any
 LAST_RECORD_TIMESTAMP = 0

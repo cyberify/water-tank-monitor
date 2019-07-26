@@ -11,4 +11,3 @@
 - Our first attempt to daemonize the main script under CouchDB resulted in two issues
 	- the script was stuck repeatedly exiting and restarting
 	- two instances of the script were kept alive for some reason
-
