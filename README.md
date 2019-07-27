@@ -4,7 +4,9 @@ Multi-component system for monitoring, logging, and reporting liquid volume leve
 ### Tank specs
 This project is based off a 'B-3500' tank with *3500* gallon capacity, *8'6"* diameter, and *14'6"* length.
 
-**TODO: volume calculations**
+**todo: volume calculations**
+
+**Note**: current tank specs are stored in CouchDB at 
 
 ## Hardware
 #### [Ultrasonic Sensor HC–SR04]
@@ -39,7 +41,7 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
     - user: `ubnt`
     - password: `ubnt`
 
-### SOFTWARE (see: [`provisioning.md`](doc/provisioning.md))
+### SOFTWARE (see: [`provisioning.md`](doc/provisioning-old.md))
 
 ---
 #### Resources
