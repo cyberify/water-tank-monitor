@@ -1,4 +1,5 @@
 # Scripts
+### todo: update this
 
 ### `getReading.py`
 This script reads data directly from the serial port to which the external sensor is connected, using the `maxSonarTTY` module. When run, it prints a single measurement to `stdout` (distance in millimeters).

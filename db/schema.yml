@@ -11,4 +11,6 @@ databases: # Format: Database -> Doc -> Key
     config: # Configuration values are used to determine script behavior and other app settings
       # How much time to wait between each sensor reading
       sensor_poll_interval: # [Integer] seconds between each sensor read operation
+      # todo: add config values for alerts (min/max/etc)
       # todo: info regarding off-site replication target
+    logs: # Custom log messages (e.g. reports when sensor reading script fails)

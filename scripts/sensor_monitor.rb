@@ -13,6 +13,7 @@ require 'httparty'
 require 'time'
 # require 'bundler'
 # Bundler.require :all
+# todo: use couchrest_model
 
 # Database connection
 DB_SERVER  = 'http://127.0.0.1:5984'
@@ -36,44 +37,35 @@ end
 # end
 
 # todo: store these values in DB config
-SENSOR_POLL_INTERVAL = ENV['SENSOR_POLL_INTERVAL'] || 600 # Seconds between sensor readings
-SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/getReading.py'
+SENSOR_POLL_INTERVAL = 30 # Seconds between sensor readings
+SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/receive.py'
 
 # Check the timestamp of last record successfully saved to local DB, to establish downtime, if any
 LAST_RECORD_TIMESTAMP = 0
   # check for downtime, logging any detected
   # todo: calculate downtime based on discrepancy between last record successfully
 
-# Operations to carry out before/after sensor readings are processed and stored in the database
-def pre_hook
-end
-def post_hook
-end
-
 #
 # MAIN LOOP
 #
-# todo: refactor to RUN ONCE mode
 loop do
   begin
-  pre_hook
-
   # Run the sensor reading script in a sub-shell, capturing the first line of output
-  # todo: test
-  sensor_reading = IO.popen("python #{SENSOR_SCRIPT}") { |io| io.readline }
+  sensor_reading = IO.popen SENSOR_SCRIPT, &:readline
 
-  # Save the measurement to the database, converting it to a Float in the process
+  # Save the measurement to the database
   # DistanceReading.create! value: reading.to_i
   # todo: test
   CouchDB.post $DB, body: {value: sensor_reading.to_i, timestamp: Time.now.utc.iso8601}.to_json
 
+  # todo: generate notice and exit if sensor reading script stops sending data
+
   # todo: generate alert if water level val within specified threshold range
   #
   # todo: ERROR MANAGEMENT
-  rescue Exception # this will catch *ANY* error; this granularity could possibly be refined...
+  rescue Exception # this will catch *ANY* error
     # todo: ERROR LOGGING CODE GOES HERE
   end
 
-  post_hook
   sleep SENSOR_POLL_INTERVAL.to_f
 end

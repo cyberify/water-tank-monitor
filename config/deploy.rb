@@ -8,6 +8,7 @@ set :web, nil
 set :scm, :git
 set :repository, 'git@bitbucket.org:SteveBenner09/ranch-water-tank-sensor-project.git'
 # set :repository, 'git@bitbucket.org:SteveBenner09/ranch-water-tank-sensor-project.git'
+# set :resository, 'https://SteveBenner09@bitbucket.org/SteveBenner09/ranch-water-tank-sensor-project.git'
 set :branch, 'master'
 set :scm_username, 'SteveBenner09'
 set :scv_verbose, true
