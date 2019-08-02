@@ -35,13 +35,19 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 ## Installation & Deployment
 
 ### HARDWARE
+**todo:** document hardware setup process (add photos if possible)
+
 #### Ubiquiti Loco M2 airMAX NanoStation
 - ***IP: https://192.168.1.21***
 - Credentials:
     - user: `ubnt`
     - password: `ubnt`
 
-### SOFTWARE (see: [`provisioning.md`](doc/provisioning-old.md))
+### SOFTWARE (see: [`provisioning.md`](doc/provisioning.md))
+
+## Data
+#### Conventions
+- Underscores are used to delineate words in keys (as oppposed to *hyphens*)
 
 ---
 #### Resources
