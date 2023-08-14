@@ -1,10 +1,10 @@
 # CouchDB database and document schema for the 'Ranch Water Tank Monitoring System'
 #
-# FORMAT: (key: Data type / Class)
+# FORMAT:
 # 'databases'
 #    database name
 #      document name
-#        key level 1
+#        key level 1: data type or class (e.g. `Integer`)
 #          key level N...
 #
 databases:
@@ -27,6 +27,7 @@ databases:
         capacity_imp_gallons: Integer # Tank volume in Imperial Gallons
         capacity_liters: Integer # Tank volume in Liters
         diameter: Integer # Inches
+<<<<<<< HEAD
 
     config: # Configuration values are used to determine script behavior and other app settings
       # How much time to wait between each sensor reading
@@ -35,3 +36,16 @@ databases:
       # todo: add config values for alerts (min/max/etc)
       # todo: info regarding off-site replication target
     logs: # Custom log messages (e.g. reports of failure, such as sensor script failing to return a value)
+=======
+    config: # Configuration values are used to determine script behavior and other app settings
+      # How much time to wait between each sensor reading
+      sensor_poll_interval: Integer # Seconds between each sensor read operation
+      # todo: add config values for alerts (min/max/etc)
+      # todo: info regarding off-site replication target
+
+  alerts:
+
+
+  # todo: add log schema
+  logs: # Custom log messages (e.g. reports of failure, such as sensor script failing to return a value)
+>>>>>>> 02b4d3a (resolving 'v2-switch' branch)
