@@ -1,0 +1,11 @@
+{
+  "_id": "_design/main",
+  "language": "coffeescript",
+
+  "views": {
+    "by-day": {
+      "map": "(doc) ->\n  dtz = doc.time.split ' '\n  [d, t, z] = [dtz[0], dtz[1], dtz[2]]\n  emit dtz, doc.value",
+      "reduce": "(keys, values) -> "
+    }
+  }
+}
