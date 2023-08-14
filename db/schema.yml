@@ -32,7 +32,6 @@ databases:
       sensor_poll_interval: Integer # Seconds between each sensor read operation
       # todo: add config values for alerts (min/max/etc)
       # todo: info regarding off-site replication target
-
   alerts:
 
 

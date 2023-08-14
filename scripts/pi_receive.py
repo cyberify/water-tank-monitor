@@ -13,7 +13,6 @@ RESET = DigitalInOut(board.D25)
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 rfm69 = adafruit_rfm69.RFM69(spi, CS, RESET, 915.0)
 rfm69.encryption_key = ''
-
 packet = None
 
 while packet is None:
