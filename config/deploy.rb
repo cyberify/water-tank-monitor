@@ -1,4 +1,4 @@
-# Deployment settings for Vlad
+# Deployment settings for Vlad (currently unused)
 
 # defaults
 set :application, 'water-tank-sensor-control'
@@ -6,7 +6,7 @@ set :web, nil
 
 # repository settings
 set :scm, :git
-set :repository, 'git@bitbucket.org:SteveBenner09/ranch-water-tank-sensor-project.git'
+set :repository, 'git@github.com:cyberify/water-tank-monitor.git'
 # set :repository, 'git@bitbucket.org:SteveBenner09/ranch-water-tank-sensor-project.git'
 # set :resository, 'https://SteveBenner09@bitbucket.org/SteveBenner09/ranch-water-tank-sensor-project.git'
 set :branch, 'master'

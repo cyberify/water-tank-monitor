@@ -1,5 +1,6 @@
-# Water tank monitoring system
-Multi-component system for monitoring, logging, and reporting liquid volume levels of a water tank.
+# Water Tank Monitoring System
+This is a multi-component system for monitoring, logging, and reporting the liquid volume levels of an external water 
+tank.
 
 ### Tank specs
 This project is based off a *B-3500* horizontal capsule tank with *3200* (imperial) gallon capacity, *7'6"* diameter, and *14'6"* length.
@@ -15,39 +16,39 @@ Water level is measured using an ultrasonic sensor suspended vertically inside t
 #### [Raspberry Pi 1 model B]
 The system is controlled from a Raspberry Pi configured to run continuously as long as there is power. It periodically collects depth measurements from connected sensor(s). A local instance of [Apache CouchDB] is used to persist the data (and replicate to off-site mirror), provide views for displaying records as a simple web page, and maintain daemonized script(s).
 
+#### [Ubiquiti Loco M2 airMAX NanoStation]
+A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, enabling network connectivity for the Pi.
+
 #### POWER
 - Power for the system is provided via `100W` pole-mounted solar panels.
 - A `12V` Deep Cycle battery functions as power source when weather conditions are unfavorable.
 - ***todo: add charge controller info***
 
-#### [Ubiquiti Loco M2 airMAX NanoStation]
-A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, enabling network connectivity for the Pi.
-
-## Software, libraries, and packages
-- Ruby 2
+## Dependencies
+- Ruby 2.7
     - `activesupport`
     - `activesupport-core-ext`
     - `couchrest_model`
-    - `vlad` ***(deployment only)***
-- Python
-- CouchDB
+- Python 3
+- CouchDB 3
+  - Erlang OTP (24.x, 25.x)
+  - ICU
+  - OpenSSL
+  - Mozilla SpiderMonkey (1.8.5, 60, 68, 78, 91)
+  - GNU Make
+  - GNU Compiler Collection
+  - libcurl
 
 ## Installation & Deployment
-
 ### HARDWARE
 **todo:** document hardware setup process (add photos if possible)
 
-#### Ubiquiti Loco M2 airMAX NanoStation
-- ***IP: https://192.168.1.21***
-- Credentials:
-    - user: `ubnt`
-    - password: `ubnt`
+### SOFTWARE
+#### See: [`provisioning.md`](doc/PROVISIONING.md) for instructions.
 
-### SOFTWARE (see: [`provisioning.md`](doc/provisioning.md))
-
-## Data
-#### Conventions
-- Underscores are used to delineate words in keys (as oppposed to *hyphens*)
+## Notes
+### Conventions
+- **Underscores** are used to delineate words in *keys* (as oppposed to **hyphens**)
 
 ---
 #### Resources

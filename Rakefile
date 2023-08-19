@@ -1,17 +1,16 @@
-# Provisioning with Vlad
-begin
-  require 'vlad'
-  require 'vlad-extras'
-  Vlad.load
-rescue LoadError
-  puts 'Failed to load Vlad.'
+# Installation and setup tasks
+task default: %w[install]
+
+task install: %w[packages]
+# install everything but ruby and git via apt-get
+# install erlang
+# create couch user
+# mkdir, download and install couchdb
+# set permissions/ownerships
+# copy monitor scripts
+# daemonize couchdb
 end
 
-# desc 'Full deployment cycle'
-# task 'vlad:deploy' => %w[
-#   vlad:update
-#   vlad:migrate
-#   vlad:reset_session
-#   vlad:start
-#   vlad:cleanup
-# ]
+task :packages do
+
+end
