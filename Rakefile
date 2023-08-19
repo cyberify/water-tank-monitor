@@ -1,7 +1,7 @@
 # Installation and setup tasks
 task default: %w[install]
 
-task install: %w[packages]
+task install: %w[packages] do
 # install everything but ruby and git via apt-get
 # install erlang
 # create couch user
