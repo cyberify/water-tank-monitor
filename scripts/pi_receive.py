@@ -22,5 +22,3 @@ while packet is None:
 
 packetText = str(packet, "utf-8")
 print(packetText)
-
-
