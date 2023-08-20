@@ -16,10 +16,15 @@ Debian GNU/Linux 11 (bullseye)
 *Note: All of our scripts are run on the Pi as* `root`
 
 ### General
-`sudo apt-get install ntp vim git python3 ruby`
+```
+sudo apt-get install ntp vim git python3 ruby
+```
 
 ### Ruby gems
-`sudo gem install bundler`
+```
+sudo gem install bundler
+sudo gem install httparty
+```
 
 ### CouchDB
 This procedures is based on [the official docs][1]. ***Be sure to update package names to match your 
@@ -50,6 +55,7 @@ If a regular package installation works, **GREAT!** You can skip the following s
 #### Installing from source
 Download unpack, and cleanup
 ```
+cd ~
 wget https://dlcdn.apache.org/couchdb/source/3.3.2/apache-couchdb-3.3.2.tar.gz
 tar zxvf apache-couchdb-3.3.2.tar.gz
 rm apache-couchdb-3.3.2.tar.gz
@@ -130,12 +136,25 @@ sudo sv stop couchdb
 sudo sv start couchdb
 ```
 
-### Install the system
-First, clone the repo. From inside the repo directory, run the following commands:
+Create the the following databases: `readings`, `logs`, and `admin`.
+
+Create the following document in the `admin` database
+```json
+{
+    
+}
 ```
-bundle install
-rake
+
+Install the scripts
 ```
+sudo cp -R /home/pi/water-tank-monitor/scripts /home/pi/
+```
+
+Setup `crontab` to automatically run the master script on startup
+```
+```
+
+#### ... That's it! You're done. *Enjoy the water tank monitoring system!*
 
 ## *OPTIONAL*
 ### Packetriot

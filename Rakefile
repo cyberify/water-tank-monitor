@@ -7,8 +7,10 @@ task install: %w[packages] do
 # create couch user
 # mkdir, download and install couchdb
 # set permissions/ownerships
+# create databases
 # copy monitor scripts
 # daemonize couchdb
+# setup crontab to run script
 end
 
 task :packages do
