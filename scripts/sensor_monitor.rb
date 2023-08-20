@@ -38,7 +38,7 @@ end
 
 # todo: store these values in DB config
 SENSOR_POLL_INTERVAL = 600 # Seconds between sensor readings
-SENSOR_SCRIPT        = '/home/pi/water-tank-sensor-control/scripts/receive.py'
+SENSOR_SCRIPT        = '/home/pi/scripts/pi_receive.py'
 
 # Check the timestamp of last record successfully saved to local DB, to establish downtime, if any
 # todo: calculate downtime based on discrepancy between last record successfully, log anything significant
