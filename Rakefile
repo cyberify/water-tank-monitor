@@ -2,13 +2,14 @@
 task default: %w[install]
 
 task install: %w[packages] do
+# give pi a permanent IP
 # install everything but ruby and git via apt-get
-# install erlang
+# install bundler
+# bundle install
 # create couch user
 # mkdir, download and install couchdb
 # set permissions/ownerships
 # create databases
-# copy monitor scripts
 # daemonize couchdb
 # setup crontab to run script
 end

@@ -2,6 +2,15 @@
 This is a multi-component system for monitoring, logging, and reporting the liquid volume levels of an external water 
 tank.
 
+### Usage
+*See [NOTES](doc/NOTES.md) for specific information*
+
+#### Web View
+*todo*
+
+#### CouchDB / Fauxton
+
+
 ### Tank specs
 This project is based off a *B-3500* horizontal capsule tank with *3200* (imperial) gallon capacity, *7'6"* diameter, and *14'6"* length.
 
@@ -44,7 +53,7 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 **todo:** document hardware setup process (add photos if possible)
 
 ### SOFTWARE
-#### See: [`provisioning.md`](doc/PROVISIONING.md) for instructions.
+#### See [PROVISIONING](doc/PROVISIONING.md) for instructions.
 
 ## Notes
 ### Conventions

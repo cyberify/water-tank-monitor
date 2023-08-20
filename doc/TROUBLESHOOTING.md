@@ -2,8 +2,7 @@
 ### Installing CouchDB
 Nearly all of the problems we ran into when provisioning were related to installing CouchDB. It has a ton of 
 dependencies, many of which are quite old and even out of date, and it is likely that if there is a `couchdb` package
- available for your system, it won't install properly due to some dependency failing.
-- **SpiderMonkey**
+ available for your system, it won't install properly due to some dependency failing.®
 - **Erlang** failed to install from the `erlang` package using `apt-get`
   - Cause uknown, `apt-get` reported that several dependencies were impossible to install, due to *their* 
   dependencies being unable to install.

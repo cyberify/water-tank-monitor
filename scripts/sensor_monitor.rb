@@ -6,8 +6,6 @@
 #
 require 'httparty'
 require 'time'
-# require 'bundler'
-# Bundler.require :all
 
 # Database connection
 DB_SERVER   = 'http://127.0.0.1:5984'
@@ -19,15 +17,9 @@ class CouchDB
   headers 'Content-Type' => 'application/json' # NOTE: the outmoded `rocket` syntax MUST be used here
 end
 
-# todo: store these values in DB config
-SENSOR_SCRIPT        = '/home/pi/scripts/pi_receive.py'
-
-
-
-SENSOR_POLL_INTERVAL = 300 # Seconds between sensor readings
-
-# Check the timestamp of last record successfully saved to local DB, to establish downtime, if any
-# todo: calculate downtime based on discrepancy between last record successfully, log anything significant
+SENSOR_SCRIPT = File.expand_path 'pi_receive.py', __dir__
+$config = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
+SENSOR_POLL_INTERVAL = $config[:poll_interval_sensor] # Seconds between sensor readings
 
 #
 # MAIN LOOP
@@ -41,13 +33,11 @@ loop do
   # Save the measurement to the database
   CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
 
-  # todo: check for cases of '0' value from sensor read script
-  # todo: generate notice and exit if sensor reading script stops sending data
-
   # todo: generate alert if water level val within specified threshold range
-  #
-  # todo: ERROR MANAGEMENT
-  rescue Exception # this will catch *ANY* error
+  # todo: generate alert if reading is 0 (indicating overflow)
+
+  # Catch *ANY* error occurring while running the master script, logging it and generating an alert
+  rescue Exception
     # todo: ERROR LOGGING CODE GOES HERE
   end
 

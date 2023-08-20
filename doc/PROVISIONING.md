@@ -27,7 +27,7 @@ Debian GNU/Linux 11 (bullseye)
 
 ### General
 ```
-sudo apt-get install ntp vim git python3 ruby
+sudo apt-get install -y ntp vim git python3 ruby
 ```
 
 ### Ruby gems
@@ -53,7 +53,7 @@ If you run into problems, the recommendation is to **manually install the
 dependencies are the cause of the problem. Attempt using `apt-get` to install dependencies (and their 
 dependencies, if necessary) before manually building.
 
-See [TROUBLESHOOTING.md](/doc/TROUBLESHOOTING.md) for help with any issues.
+See [TROUBLESHOOTING](TROUBLESHOOTING.md) for help with any issues.
 
 ---
 #### Install from package
@@ -86,7 +86,8 @@ sudo chmod 0644 /home/couchdb/etc/*
 ```
 
 Create a [CouchDB admin user][2]. When installing from package, there is an interactive prompt. When installing from 
-source, you must locate the proper .ini config file, which depends on the location of your installation, such as 
+source, you must edit (**and SAVE**) the proper .ini config file, which depends on the location of your installation, e
+.g. 
 `/opt/couchdb/etc/local.ini`.
 
 The section to modify is as follows (remove the semicolon):
@@ -96,100 +97,57 @@ The section to modify is as follows (remove the semicolon):
 ;admin=password
 ```
 
-#### Daemonizing CouchDB
-
-```shell
-sudo apt-get install runit
-
-# Create a directory where logs will be written:
-
-sudo mkdir /var/log/couchdb
-sudo chown couchdb:couchdb /var/log/couchdb
-
-# Create directories that will contain runit configuration for CouchDB:
-
-sudo mkdir /etc/sv/couchdb
-sudo mkdir /etc/sv/couchdb/log
-```
-
-Create `/etc/sv/couchdb/log/run` :
-
-```shell
-#!/bin/sh
-exec svlogd -tt /var/log/couchdb
-```
-
-*The above script determines where and how the logs will be written. See `man svlogd` for more details.*
-
-Create `/etc/sv/couchdb/run` :
-
-```shell
-#!/bin/sh
-export HOME=/home/couchdb
-exec 2>&1
-exec chpst -u couchdb /home/couchdb/bin/couchdb
-
-# This script determines how exactly CouchDB will be launched. Feel free to add any additional arguments and environment variables here if necessary.
-
-# Make scripts executable:
-sudo chmod u+x /etc/sv/couchdb/log/run
-sudo chmod u+x /etc/sv/couchdb/run
-
-# Then run:
-sudo ln -s /etc/sv/couchdb/ /etc/service/couchdb
-
-sudo reboot
-
-# You can control CouchDB service like this:
-sudo sv status couchdb
-sudo sv stop couchdb
-sudo sv start couchdb
-```
-
+#### Database setup
 Create the the following databases: `readings`, `logs`, and `admin`.
 
-Create the following document in the `admin` database
+Once created, go into 
+the configuration UI using Fauxton,
+and remove the `_admin` roles from both 
+`Admins` and `Members` 
+sections. This is the simplest way to enable access.
+
+**NOTE: We are now running insecurely with open access to the databases.**
+
+Our master script 
+currently 
+implements no authorization, therefore databases must be open in order for the system to work. For private networks, 
+this setup is totally fine. *For systems with public access, you should definitely consider authorization*.
+
+#### System configuration
+Create the following document in the `admin` database, and name it `config`.
 ```json
 {
-    
+  "_id": "config",
+  "threshold_low": 700,
+  "threshold_high": 0,
+  "poll_interval_sensor": 300,
+  "poll_interval_alerts": 900
 }
 ```
 
-Install the scripts
+*See [README](../README.md) for explanation of configuration values*
+
+#### Daemonizing CouchDB
+If you use a package install, `systemctl` can be used to control the CouchDB service:
 ```
-sudo cp -R /home/pi/water-tank-monitor/scripts /home/pi/
+sudo systemctl status couchdb
+sudo systemctl stop couchdb
+sudo systemctl start couchdb
 ```
 
-Add the following line to `/etc/crontab` to automatically run the master script on startup
-`@reboot   pi  ruby /home/pi/scripts/sensor_monitor.rb`
+When building from source, you will have to create your own solution.
 
-#### ... That's it! You're done. *Enjoy the water tank monitoring system!*
+#### Final tasks
+Append the following line to `/etc/crontab` to run the master script on system startup
+```
+@reboot         pi      ruby <path-to-repo>/scripts/sensor_monitor.rb
+```
+... replacing `<path-to-repo>` with the absolute path to this repository.
+
+#### That's it! You're done. *Enjoy the water tank monitoring system!*
 
 ## *OPTIONAL*
-### Packetriot
-For remote SSH access
-```shell
-sudo useradd pktriot 
-
-wget https://pktriot-dl-bucket.sfo2.digitaloceanspaces.com/releases/linux/pktriot-0.9.5.arm32.tar.gz
-tar -xzvf pktriot-0.9.5.arm64.tar.gz
-cd pktriot-0.9.5
-sudo cp pktriot /usr/bin/pktriot
-cp pktriot.service /etc/service
-
-sudo mkdir /etc/pktriot
-sudo chown -R pktriot:pktriot /etc/pktriot
-
-sudo -u pktriot pktriot configure
-sudo -u pktriot pktriot edit --name "RanchPi SSH Tunnel"
-sudo -u pktriot pktriot route tcp allocate
-sudo -u pktriot pktriot route tcp forward --port <allocated port> --destination <Static Internal IP Address of Pi> --dstport 22
-
-sudo -u pktriot start
-```
-
-## *OPTIONAL*
-### wireguard tunnel
+### Wireguard tunnel
 For remote SSH access / easy couchDB replication
 ```shell
 sudo useradd pktriot 
@@ -250,7 +208,7 @@ add `/lib/dhcpcd/dhcpcd-hooks/40-wgroute`:
 
 ### Install Circuitpython & Other Libraries
 ```shell
-sudo apt-get install python3-pip
+sudo apt-get -y install python3-pip
 sudo pip3 install RPI.GPIO
 sudo pip3 install adafruit-blinka
 sudo pip3 install adafruit-circuitpython-ssd1306
