@@ -1,5 +1,15 @@
 # Raspberry Pi Provisioning
 **This documentation is for the following version OS:**
+
+
+download raspberry pi OS lite (64bit)
+flash to SP 32GB microsd card
+use raspi config tool to configure user and host details
+https://downloads.raspberrypi.org/imager/imager_latest.dmg
+
+networking:
+  - set static IP address for pi in router
+
 ```
 Debian GNU/Linux 11 (bullseye)
 ```
@@ -150,9 +160,8 @@ Install the scripts
 sudo cp -R /home/pi/water-tank-monitor/scripts /home/pi/
 ```
 
-Setup `crontab` to automatically run the master script on startup
-```
-```
+Add the following line to `/etc/crontab` to automatically run the master script on startup
+`@reboot   pi  ruby /home/pi/scripts/sensor_monitor.rb`
 
 #### ... That's it! You're done. *Enjoy the water tank monitoring system!*
 
@@ -178,6 +187,60 @@ sudo -u pktriot pktriot route tcp forward --port <allocated port> --destination 
 
 sudo -u pktriot start
 ```
+
+## *OPTIONAL*
+### wireguard tunnel
+For remote SSH access / easy couchDB replication
+```shell
+sudo useradd pktriot 
+
+wget https://pktriot-dl-bucket.sfo2.digitaloceanspaces.com/releases/linux/pktriot-0.9.5.arm32.tar.gz
+tar -xzvf pktriot-0.9.5.arm64.tar.gz
+cd pktriot-0.9.5
+sudo cp pktriot /usr/bin/pktriot
+cp pktriot.service /etc/service
+
+sudo mkdir /etc/pktriot
+sudo chown -R pktriot:pktriot /etc/pktriot
+
+sudo -u pktriot pktriot configure
+sudo -u pktriot pktriot edit --name "RanchPi SSH Tunnel"
+sudo -u pktriot pktriot route tcp allocate
+sudo -u pktriot pktriot route tcp forward --port <allocated port> --destination <Static Internal IP Address of Pi> --dstport 22
+
+sudo -u pktriot start
+```
+
+## *OPTIONAL*
+### wireguard tunnel
+For remote SSH access / easy couchDB replication
+
+`sudo apt install wireguard`
+
+add `/etc/wireguard/wg0.conf`
+```
+# define the local WireGuard interface (client)
+[Interface]
+
+# contents of file wg-private.key that was recently created
+PrivateKey = <>
+
+# define the remote WireGuard interface (server)
+[Peer]
+
+# contents of wg-public.key on the WireGuard server
+PublicKey = <>
+
+# the IP address of the server on the WireGuard network
+AllowedIPs = <>
+
+# public IP address and port of the WireGuard server
+Endpoint = <>
+```
+
+add `/lib/dhcpcd/dhcpcd-hooks/40-wgroute`:
+`ip route add 10.0.100.0/24 via 10.40.0.1`
+
 
 # Adafruit RFM69HCW Transceiver Radio Bonnet Setup
 ### Prerequisites
