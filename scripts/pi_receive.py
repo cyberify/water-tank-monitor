@@ -20,5 +20,12 @@ while packet is None:
     packet = rfm69.receive()
     time.sleep(0.25)
 
-packetText = str(packet, "utf-8")
-print(packetText)
+pckt = str(packet)
+
+beginning = pckt.index('R')
+# Get index of first '\' in data stream
+end = pckt.index('\\', beginning)
+# Get distance reading value between 'R' and '\'
+pcktVal = int(pckt[(beginning + 1):end])
+
+print(pcktVal)
