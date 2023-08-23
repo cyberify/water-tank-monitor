@@ -114,7 +114,7 @@ implements no authorization, therefore databases must be open in order for the s
 this setup is totally fine. *For systems with public access, you should definitely consider authorization*.
 
 #### System configuration
-Create the following document in the `admin` database, and name it `config`.
+Create the following document in `admin` database, and name it `config`.
 ```json
 {
   "_id": "config",
@@ -128,49 +128,24 @@ Create the following document in the `admin` database, and name it `config`.
 *See [README](../README.md) for explanation of configuration values*
 
 #### Daemonizing CouchDB
-If you use a package install, `systemctl` can be used to control the CouchDB service:
+If you use a package install, `systemctl` can be used to control CouchDB:
 ```
 sudo systemctl status couchdb
 sudo systemctl stop couchdb
 sudo systemctl start couchdb
 ```
 
-When building from source, you will have to create your own solution.
-
 #### Final tasks
-Append the following line to `/etc/crontab` to run the master script on system startup
+Append the following line to `/etc/crontab` to run the master script on system startup ***(replace `<path-to-repo>` 
+with the absolute path to this repository)***.
 ```
 @reboot         pi      ruby <path-to-repo>/scripts/sensor_monitor.rb
 ```
-... replacing `<path-to-repo>` with the absolute path to this repository.
 
 #### That's it! You're done. *Enjoy the water tank monitoring system!*
 
 ## *OPTIONAL*
 ### Wireguard tunnel
-For remote SSH access / easy couchDB replication
-```shell
-sudo useradd pktriot 
-
-wget https://pktriot-dl-bucket.sfo2.digitaloceanspaces.com/releases/linux/pktriot-0.9.5.arm32.tar.gz
-tar -xzvf pktriot-0.9.5.arm64.tar.gz
-cd pktriot-0.9.5
-sudo cp pktriot /usr/bin/pktriot
-cp pktriot.service /etc/service
-
-sudo mkdir /etc/pktriot
-sudo chown -R pktriot:pktriot /etc/pktriot
-
-sudo -u pktriot pktriot configure
-sudo -u pktriot pktriot edit --name "RanchPi SSH Tunnel"
-sudo -u pktriot pktriot route tcp allocate
-sudo -u pktriot pktriot route tcp forward --port <allocated port> --destination <Static Internal IP Address of Pi> --dstport 22
-
-sudo -u pktriot start
-```
-
-## *OPTIONAL*
-### wireguard tunnel
 For remote SSH access / easy couchDB replication
 
 `sudo apt install wireguard`
@@ -198,7 +173,6 @@ Endpoint = <>
 
 add `/lib/dhcpcd/dhcpcd-hooks/40-wgroute`:
 `ip route add 10.0.100.0/24 via 10.40.0.1`
-
 
 # Adafruit RFM69HCW Transceiver Radio Bonnet Setup
 ### Prerequisites
