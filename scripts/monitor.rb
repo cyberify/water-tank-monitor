@@ -8,8 +8,7 @@ require 'httparty'
 require 'time'
 
 # Database connection
-DB_SERVER   = 'http://127.0.0.1:5984'
-
+DB_SERVER = 'http://127.0.0.1:5984'
 class CouchDB
   include HTTParty
   base_uri DB_SERVER
@@ -18,8 +17,10 @@ class CouchDB
 end
 
 SENSOR_SCRIPT = File.expand_path 'pi_receive.py', __dir__
-$config = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
-SENSOR_POLL_INTERVAL = $config[:poll_interval_sensor] # Seconds between sensor readings
+
+CONFIG = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
+
+SENSOR_POLL_INTERVAL = CONFIG[:poll_interval_sensor] # Seconds between sensor readings
 
 #
 # MAIN LOOP

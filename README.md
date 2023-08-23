@@ -3,13 +3,13 @@ This is a multi-component system for monitoring, logging, and reporting the liqu
 tank.
 
 ### Usage
-*See [NOTES](doc/NOTES.md) for specific information*
+*(See [NOTES](doc/NOTES.md) for more information)*
 
 #### Web View
 *todo*
 
 #### CouchDB / Fauxton
-
+Access the database at: http://0.0.0.0:5984/_utils
 
 ### Tank specs
 This project is based off a *B-3500* horizontal capsule tank with *3200* (imperial) gallon capacity, *7'6"* diameter, and *14'6"* length.
@@ -54,6 +54,26 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 
 ### SOFTWARE
 #### See [PROVISIONING](doc/PROVISIONING.md) for instructions.
+
+## Configuration
+Once setup, you will most likely want to specify custom parameters for your system. Do so by editing the `config` 
+document in the `admin` database.
+
+- `poll_interval_sensor`
+
+  Number of **Seconds** between water level sensor readings
+  
+- `poll_interval_alerts`
+
+  Number of **Seconds** to wait between generating alerts
+  
+- `threshold_low`
+
+  Generate an alert if water is at or below this level in **Inches**
+  
+- `threshold_high`
+
+  Generate an alert if water is at or above this level in **Inches**
 
 ## Notes
 ### Conventions
