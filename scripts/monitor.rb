@@ -28,7 +28,7 @@ EMPTY = 2286 # Maximum distance in mm from the sensor to the tank bottom
 #
 loop do
   begin
-    # Run the sensor reading script ingit p a sub-shell, capturing the first line of output
+    # Run the sensor reading script in a sub-shell, capturing the first line of output
     # The expected data format is a 4 digit value, all Integers. Example: 0740
     sensor_reading = (IO.popen SENSOR_SCRIPT, &:readline).to_i
 
