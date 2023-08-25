@@ -34,7 +34,7 @@ loop do
 
   # temp testing code
   tank_level = EMPTY - sensor_reading
-  msg = "WARNING! The tank level is below #{tank_level}mm!"
+  msg = "WARNING! The tank level is below #{tank_level.to_i}mm!"
   exec (File.expand_path 'notify_group.sh', __dir__), msg
 
   CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
@@ -42,12 +42,12 @@ loop do
   # Alerts
   if sensor_reading >= CONFIG[:threshold_low]
     tank_level = EMPTY - sensor_reading
-    msg = "WARNING! The tank level is below #{tank_level}mm!"
+    msg = "WARNING! The tank level is below #{tank_level.to_i}mm!"
     # call telegram alert bot
     exec (File.expand_path 'notify_group.sh', __dir__), msg
     # Log the alert
     CouchDB.post '/logs', body:
-      { type: 'alert', category: 'level_low', level: tank_level, "id": Time.now.utc.iso8601 }.to_json
+      { type: 'alert', category: 'level_low', level: tank_level, "_id": Time.now.utc.iso8601 }.to_json
   end
   if sensor_reading == CONFIG[:threshold_high]
     tank_level = EMPTY - sensor_reading
@@ -56,7 +56,7 @@ loop do
     exec (File.expand_path 'notify_group.sh', __dir__), msg
     # Log the alert
     CouchDB.post '/logs', body:
-      { type: 'alert', category: 'level_high', level: tank_level, "id": Time.now.utc.iso8601 }.to_json
+      { type: 'alert', category: 'level_high', level: tank_level, _"id": Time.now.utc.iso8601 }.to_json
   end
 
   # Catch *ANY* error occurring while running the master script, logging it and generating an alert
