@@ -34,10 +34,7 @@ loop do
 
   # temp testing code
   tank_level = EMPTY - sensor_reading
-  msg = "WARNING! The tank level is below #{tank_level}mm!"
-  exec (File.expand_path 'notify_group.sh', __dir__), msg
-
-  # Save the measurement to the database
+  msg = "WARNING! The tank level is below #{tank_level}mm!"gi
   CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
 
   # Alerts
