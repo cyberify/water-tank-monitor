@@ -32,6 +32,11 @@ loop do
   # The expected data format is a 4 digit value, all Integers. Example: 0740
   sensor_reading = IO.popen SENSOR_SCRIPT, &:readline
 
+  # temp testing code
+  tank_level = EMPTY - sensor_reading
+  msg = "WARNING! The tank level is below #{tank_level}mm!"
+  exec (File.expand_path 'notify_group.sh', __dir__), msg
+
   # Save the measurement to the database
   CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
 
@@ -40,6 +45,7 @@ loop do
     tank_level = EMPTY - sensor_reading
     msg = "WARNING! The tank level is below #{tank_level}mm!"
     # call telegram alert bot
+    exec (File.expand_path 'notify_group.sh', __dir__), msg
     # Log the alert
     CouchDB.post '/logs', body:
       { type: 'alert', category: 'level_low', level: tank_level, "id": Time.now.utc.iso8601 }.to_json
@@ -48,6 +54,7 @@ loop do
     tank_level = EMPTY - sensor_reading
     msg = 'WARNING! The tank is overflowing!'
     # call telegram alert bot
+    exec (File.expand_path 'notify_group.sh', __dir__), msg
     # Log the alert
     CouchDB.post '/logs', body:
       { type: 'alert', category: 'level_high', level: tank_level, "id": Time.now.utc.iso8601 }.to_json

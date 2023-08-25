@@ -1,7 +1,7 @@
 # Scripts
 ### `monitor.rb`
 This is the master script. It is responsible for all data collection and database management. Daemonized  using 
-`/etc/rc.local`.
+`systemd`.
   
 ### `pi_receive.py`
   
