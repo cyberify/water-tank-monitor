@@ -138,7 +138,7 @@ sudo systemctl start couchdb
 #### Final tasks
 To daemonize the script, first symbolically link it
 ```
-sudo ln -s <path-to-repo>/scripts/monitor.rb
+sudo ln -s <path-to-repo>/scripts/monitor.rb /usr/local/bin/monitor
 ```
 
 #### That's it! You're done. *Enjoy the water tank monitoring system!*
