@@ -56,7 +56,7 @@ loop do
     exec (File.expand_path 'notify_group.sh', __dir__), msg
     # Log the alert
     CouchDB.post '/logs', body:
-      { type: 'alert', category: 'level_high', level: tank_level, _"id": Time.now.utc.iso8601 }.to_json
+      { type: 'alert', category: 'level_high', level: tank_level, "_id": Time.now.utc.iso8601 }.to_json
   end
 
   # Catch *ANY* error occurring while running the master script, logging it and generating an alert
