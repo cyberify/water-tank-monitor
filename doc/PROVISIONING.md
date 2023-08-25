@@ -136,10 +136,9 @@ sudo systemctl start couchdb
 ```
 
 #### Final tasks
-Append the following line to `/etc/crontab` to run the master script on system startup ***(replace `<path-to-repo>` 
-with the absolute path to this repository)***.
+To daemonize the script, first symbolically link it
 ```
-@reboot         pi      ruby <path-to-repo>/scripts/sensor_monitor.rb
+sudo ln -s <path-to-repo>/scripts/monitor.rb
 ```
 
 #### That's it! You're done. *Enjoy the water tank monitoring system!*
