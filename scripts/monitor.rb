@@ -32,7 +32,7 @@ loop do
     # The expected data format is a 4 digit value, all Integers. Example: 0740
     sensor_reading = (IO.popen SENSOR_SCRIPT, &:readline).to_i
 
-    CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
+    CouchDB.post '/readings', body: { value: sensor_reading, "_id": Time.now.utc.iso8601 }.to_json
 
     # Alerts
     if sensor_reading >= CONFIG[:threshold_low]
@@ -56,7 +56,7 @@ loop do
   # Catch *ANY* error occurring while running the master script, logging it and generating an alert
   rescue Exception => e
     CouchDB.post '/logs', body:
-      { type: 'alert', category: 'script_error', error: e, "id": Time.now.utc.iso8601 }.to_json
+      { type: 'alert', category: 'script_error', error: e, "_id": Time.now.utc.iso8601 }.to_json
   end
 
   sleep SENSOR_POLL_INTERVAL.to_f
