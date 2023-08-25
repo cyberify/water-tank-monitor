@@ -28,14 +28,9 @@ EMPTY = 2286 # Maximum distance in mm from the sensor to the tank bottom
 #
 loop do
   begin
-    # Run the sensor reading script in a sub-shell, capturing the first line of output
+    # Run the sensor reading script ingit p a sub-shell, capturing the first line of output
     # The expected data format is a 4 digit value, all Integers. Example: 0740
     sensor_reading = (IO.popen SENSOR_SCRIPT, &:readline).to_i
-
-    # temp testing code
-    tank_level = EMPTY - sensor_reading
-    msg = "WARNING! The tank level is below #{tank_level}mm!"
-    exec (File.expand_path 'notify_group.sh', __dir__), msg
 
     CouchDB.post '/readings', body: { value: sensor_reading.to_i, "_id": Time.now.utc.iso8601 }.to_json
 
