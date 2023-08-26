@@ -71,10 +71,6 @@ document in the `admin` database. Add the following values:
 
   Generate an alert if water is at or below this level in **Millimeters**
   
-- `tank_capacity = 2286`
-
-  The max fill level of the tank, in **Millimeters**
-  
 ## Notes
 ### Conventions
 - **Underscores** are used to delineate words in *keys* (as oppposed to **hyphens**)

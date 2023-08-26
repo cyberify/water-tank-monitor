@@ -22,7 +22,7 @@ SENSOR_SCRIPT = File.expand_path 'pi_receive.py', __dir__
 CONFIG = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
 
 SENSOR_POLL_INTERVAL = CONFIG[:poll_interval_sensor] # Seconds between sensor readings
-CAPACITY = CONFIG[:tank_capacity] # Maximum distance in mm from the sensor to the tank bottom
+CAPACITY = 2286 # Maximum distance in mm from the sensor to the tank bottom
 
 #
 # MAIN LOOP
