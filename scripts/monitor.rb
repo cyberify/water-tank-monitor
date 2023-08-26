@@ -29,6 +29,7 @@ THRESHOLD_LOW = CONFIG[:threshold_low] / IMPERIAL_RATIO # Level to generate an a
 #
 # MAIN LOOP
 #
+last_alert = Time.now
 loop do
   begin
     # Run the sensor reading script in a sub-shell, capturing the first line of output
@@ -39,21 +40,20 @@ loop do
 
     # Alerts
     tank_level = CAPACITY - sensor_reading
-    if tank_level <= THRESHOLD_LOW
-      msg = "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
+    if Time.now - last_alert > CONFIG[:poll_interval_alerts] && (tank_level <= THRESHOLD_LOW || sensor_reading.zero?)
+      last_alert = Time.now # reset counter to ensure alert throttling works
+      msg = if sensor_reading.zero?
+              'WARNING! The tank appears to be overflowing!!!'
+              alert_category = 'level_high'
+            else
+              "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
+              alert_category = 'level_low'
+            end
       # call telegram alert bot
       system (File.expand_path 'notify_group.sh', __dir__), msg
       # Log the alert
       CouchDB.post '/logs', body:
-        { type: 'alert', category: 'level_low', level: tank_level, "_id": Time.now.utc.iso8601 }.to_json
-    end
-    if sensor_reading.zero?
-      msg = 'WARNING! The tank appears to be overflowing!!!'
-      # call telegram alert bot
-      system (File.expand_path 'notify_group.sh', __dir__), msg
-      # Log the alert
-      CouchDB.post '/logs', body:
-        { type: 'alert', category: 'level_high', level: tank_level, "_id": Time.now.utc.iso8601 }.to_json
+        { type: 'alert', category: alert_category, level: tank_level, "_id": Time.now.utc.iso8601 }.to_json
     end
   # Catch *ANY* error occurring while running the master script, logging it and generating an alert
   rescue Exception => e
