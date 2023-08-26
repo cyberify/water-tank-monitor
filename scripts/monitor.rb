@@ -24,6 +24,7 @@ CONFIG = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
 SENSOR_POLL_INTERVAL = CONFIG[:poll_interval_sensor] # Seconds between sensor readings
 CAPACITY = 2743.2 # Maximum distance in mm from the sensor to the tank bottom
 IMPERIAL_RATIO = 0.00328084
+THRESHOLD_LOW = CONFIG[:threshold_low] / IMPERIAL_RATIO # Level to generate an alert at, in feet
 
 #
 # MAIN LOOP
@@ -38,7 +39,7 @@ loop do
 
     # Alerts
     tank_level = CAPACITY - sensor_reading
-    if tank_level <= CONFIG[:threshold_low]
+    if tank_level <= THRESHOLD_LOW
       msg = "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
       # call telegram alert bot
       system (File.expand_path 'notify_group.sh', __dir__), msg
