@@ -39,7 +39,7 @@ loop do
     # Alerts
     tank_level = CAPACITY - sensor_reading
     if tank_level <= CONFIG[:threshold_low]
-      msg = "WARNING! The tank level is below #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
+      msg = "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
       # call telegram alert bot
       system (File.expand_path 'notify_group.sh', __dir__), msg
       # Log the alert
