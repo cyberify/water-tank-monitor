@@ -22,7 +22,8 @@ SENSOR_SCRIPT = File.expand_path 'pi_receive.py', __dir__
 CONFIG = CouchDB.get('/admin/config').to_hash.transform_keys &:to_sym
 
 SENSOR_POLL_INTERVAL = CONFIG[:poll_interval_sensor] # Seconds between sensor readings
-CAPACITY = 2286 # Maximum distance in mm from the sensor to the tank bottom
+CAPACITY = 2743.2 # Maximum distance in mm from the sensor to the tank bottom
+IMPERIAL_RATIO = 0.00328084
 
 #
 # MAIN LOOP
@@ -38,7 +39,7 @@ loop do
     # Alerts
     tank_level = CAPACITY - sensor_reading
     if tank_level <= CONFIG[:threshold_low]
-      msg = "WARNING! The tank level is below the threshold of #{CONFIG[:threshold_low]}mm (#{tank_level}mm)!"
+      msg = "WARNING! The tank level is below #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
       # call telegram alert bot
       system (File.expand_path 'notify_group.sh', __dir__), msg
       # Log the alert
