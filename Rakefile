@@ -11,7 +11,7 @@ task install: %w[packages] do
 # set permissions/ownerships
 # create databases
 # daemonize couchdb
-# setup crontab to run script
+# setup systemd to run script
 end
 
 task :packages do
