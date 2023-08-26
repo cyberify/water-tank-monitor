@@ -119,7 +119,6 @@ Create the following document in `admin` database, and name it `config`.
 {
   "_id": "config",
   "threshold_low": 700,
-  "threshold_high": 0,
   "poll_interval_sensor": 300,
   "poll_interval_alerts": 900
 }
