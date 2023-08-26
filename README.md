@@ -57,7 +57,7 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 
 ## Configuration
 Once setup, you will most likely want to specify custom parameters for your system. Do so by editing the `config` 
-document in the `admin` database.
+document in the `admin` database. Add the following values:
 
 - `poll_interval_sensor`
 
@@ -69,12 +69,12 @@ document in the `admin` database.
   
 - `threshold_low`
 
-  Generate an alert if water is at or below this level in **Inches**
+  Generate an alert if water is at or below this level in **Millimeters**
   
-- `threshold_high`
+- `tank_capacity = 2286`
 
-  Generate an alert if water is at or above this level in **Inches**
-
+  The max fill level of the tank, in **Millimeters**
+  
 ## Notes
 ### Conventions
 - **Underscores** are used to delineate words in *keys* (as oppposed to **hyphens**)
