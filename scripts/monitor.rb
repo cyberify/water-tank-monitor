@@ -8,7 +8,7 @@ require 'httparty'
 require 'time'
 
 # Database connection (SLEEP IS IMPORTANT, AS CouchDB ISN'T IMMEDIATELY UP
-sleep 5
+sleep 10
 DB_SERVER = 'http://127.0.0.1:5984'
 class CouchDB
   include HTTParty
@@ -43,11 +43,11 @@ loop do
     if Time.now - last_alert > CONFIG[:poll_interval_alerts] && (tank_level <= THRESHOLD_LOW || sensor_reading.zero?)
       last_alert = Time.now # reset counter to ensure alert throttling works
       msg = if sensor_reading.zero?
-              'WARNING! The tank appears to be overflowing!!!'
               alert_category = 'level_high'
+              'WARNING! The tank appears to be overflowing!!!'
             else
-              "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
               alert_category = 'level_low'
+              "WARNING! The water tank level is at #{(tank_level * IMPERIAL_RATIO).truncate 2} feet!"
             end
       # call telegram alert bot
       system (File.expand_path 'notify_group.sh', __dir__), msg
