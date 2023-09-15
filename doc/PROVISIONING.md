@@ -1,18 +1,18 @@
 # Raspberry Pi Provisioning
-**This documentation is for the following version OS:**
-
-
-download raspberry pi OS lite (64bit)
-flash to SP 32GB microsd card
-use raspi config tool to configure user and host details
-https://downloads.raspberrypi.org/imager/imager_latest.dmg
-
-networking:
-  - set static IP address for pi in router
-
+**This documentation is for the following OS version:**
 ```
 Debian GNU/Linux 11 (bullseye)
 ```
+### Pre-Install
+
+- Download Raspberry Pi OS lite (64bit)
+- Flash to SP 32GB MicroSD card
+- [Use raspi config tool to configure user and host details](
+https://downloads.raspberrypi.org/imager/imager_latest.dmg)
+
+#### Networking
+  - Set a static IP address for the Pi in your router
+
 ## First Steps
 - `sudo apt-get update`
 - `sudo apt-get upgrade`
@@ -23,7 +23,7 @@ Debian GNU/Linux 11 (bullseye)
 - Set a static internal IP address for the Raspberry Pi. 
 
 ## Software Installation & Setup
-*Note: All of our scripts are run on the Pi as* `root`
+*Note: all of our scripts are run on the Pi as* `root`
 
 ### General
 ```
@@ -55,7 +55,6 @@ dependencies, if necessary) before manually building.
 
 See [TROUBLESHOOTING](TROUBLESHOOTING.md) for help with any issues.
 
----
 #### Install from package
 ```
 sudo apt-get -y couchdb
