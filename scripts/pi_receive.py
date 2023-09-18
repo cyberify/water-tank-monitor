@@ -28,4 +28,4 @@ end = pckt.index('\\', beginning)
 # Get distance reading value between 'R' and '\'
 pcktVal = int(pckt[(beginning + 1):end])
 
-print(pcktVal)
+print(pcktVal, sep="")
