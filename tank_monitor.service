@@ -1,13 +1,10 @@
 [Unit]
-
-Description=Water Tank Sensor Monitor Script
-
-After=default.target
+After=couchdb.service
 
 [Service]
-
-ExecStart=/usr/local/bin/sensor_monitor.rb
+ExecStart=ruby /usr/local/bin/monitor
+ExecStartPre="systemctl is-active --quiet couchdb"
 
 [Install]
-
 WantedBy=default.target
+RequiredBy=network.target
