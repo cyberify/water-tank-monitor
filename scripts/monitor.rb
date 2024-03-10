@@ -49,7 +49,6 @@ loop do
     CouchDB.post '/readings', body: { '_id': Time.now.utc.iso8601, value: sensor_reading }.to_json
 
     # Alerts (configurable via database)
-    # todo: script failure - notify your nerds!
     tank_level = CAPACITY - sensor_reading
     if Time.now - last_alert > CONFIG[:poll_interval_alerts] && (tank_level <= THRESHOLD_LOW || sensor_reading.zero?)
       last_alert = Time.now # Reset counter to ensure alert throttling works
