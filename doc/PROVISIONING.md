@@ -25,6 +25,9 @@ https://downloads.raspberrypi.org/imager/imager_latest.dmg)
 ## Software Installation & Setup
 *Note: all of our scripts are run on the Pi as* `root`
 
+### Get the code
+Clone the repo from github, and place it anywhere. The recommended location is the users `HOME` directory.
+
 ### General
 ```
 sudo apt-get install -y ntp vim git python3 ruby
