@@ -50,7 +50,26 @@ A pole-mounted NanoStation provides line-of-sight access to the wireless LAN, en
 
 ## Installation & Deployment
 ### HARDWARE
-**todo:** document hardware setup process (add photos if possible)
+
+There are two hardware stations that are part of this project.
+There is the remote, off-grid station, and there is the local, on-grid station.
+
+The remote station is powered by a solar panel connected to a charge controller and a marine battery. There is a Feather M4 Express microcontroller connected to both a radio transceiver and ultrasonic sensor. The Feather M4 polls the sensor, gets the distance to the water level, and uses that radio connected to a directional Yagi antenna to beam the water level data to the local site. 
+
+The local station utilizes a Raspberry Pi 4 with an attached radio transceiver, running CouchDB and a script that continually listens for data from the remote system. Upon receiving data, the water level is logged to the CouchDB database, and logic to check for low water levels will trigger a script that messages a Telegram group.
+
+The core components at the remote station:
+- [Feather M4 Express](https://www.adafruit.com/product/3857)
+- [Radio Transceiver](https://www.adafruit.com/product/3229)
+- [Connecting Board](https://www.adafruit.com/product/3417)
+- [Yagi Antenna](https://a.co/d/9ARyaSF)
+- [Datasheet of kind of ultrasonic sensors used](https://maxbotix.com/pages/xl-maxsonar-wr-datasheet) 
+
+The core components at the local station:
+- [Raspberry Pi 4](https://www.adafruit.com/product/4296)
+- [Pi Radio Transceiver](https://www.adafruit.com/product/4072)
+- [Spring Antenna (or similar)](https://www.adafruit.com/product/4269)
+
 
 ### SOFTWARE
 #### See [PROVISIONING](doc/PROVISIONING.md) for instructions.
