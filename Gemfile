@@ -5,5 +5,3 @@ gem 'rake'
 
 gem 'activesupport', require: 'active_support'
 gem 'activesupport-core-ext', require: 'active_support/core_ext'
-
-# gem 'couchrest_model'
