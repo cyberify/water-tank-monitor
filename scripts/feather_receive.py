@@ -1,3 +1,21 @@
+# Copyright (C) 2024 Robert Hancock
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Robert Hancock
+# https://github.com/cyberify
+
 # Written by Robert Hancock III, with some code taken from Adafruit
 # To visualize data received from the property's water tank on an in-house display unit
 
@@ -11,7 +29,7 @@ spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 cs = digitalio.DigitalInOut(board.RFM69_CS)
 reset = digitalio.DigitalInOut(board.RFM69_RST)
 rfm69 = adafruit_rfm69.RFM69(spi, cs, reset, 915.0)
-rfm69.encryption_key = b'{\xc0\xee.5!d$!\xe2L@,$\r\xdb' # Yay, encryption!
+rfm69.encryption_key = ''
 
 # Display Setup
 i2c = board.I2C()
