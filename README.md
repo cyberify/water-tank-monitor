@@ -5,7 +5,7 @@ tank.
 ### Contents
 - [General Usage](#general-usage)
 - [Hardware](#hardware)
-- [Dependencies](#dependencies)
+- [Software](#software)
 - [Installation & Deployment](#installation--deployment)
 - [Configuration](#configuration)
 - [Notes](#notes)
@@ -42,7 +42,7 @@ The system is controlled from a Raspberry Pi configured to run continuously as l
 - A `12V` Deep Cycle battery functions as power source when weather conditions are unfavorable.
 - ***todo: add charge controller info***
 
-# Dependencies
+# Software
 - Ruby 2.7
     - `activesupport`
     - `activesupport-core-ext`
