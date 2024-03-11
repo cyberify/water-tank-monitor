@@ -2,11 +2,23 @@
 This is a multi-component system for monitoring, logging, and reporting the liquid volume levels of an external water 
 tank.
 
-### Usage
-*(See [NOTES](doc/NOTES.md) for more information)*
+### Contents
+- [General Usage](#general-usage)
+- [Hardware](#hardware)
+- [Dependencies](#dependencies)
+- [Installation & Deployment](#installation--deployment)
+- [Configuration](#configuration)
+- [Notes](#notes)
+- [Resources](#resources)
+- [Contribution](#contribution)
+- [License](#license)
+
+---
+# General Usage
+Follow the hardware and software installation guides, and see [NOTES](doc/NOTES.md) for more information.
 
 #### Web View
-*todo*
+*Coming soon*
 
 #### CouchDB / Fauxton
 Access the database at: http://0.0.0.0:5984/_utils
@@ -18,7 +30,7 @@ This project is based off a *B-3500* horizontal capsule tank with *3200* (imperi
 
 **Note**: current tank specs are stored in CouchDB 
 
-## Hardware
+# Hardware
 #### [Ultrasonic Sensor HC–SR04]
 Water level is measured using an ultrasonic sensor suspended vertically inside the tank. Due to the ambient humidity, the sensor must be protected adequately, or it risks corrosion. ***todo: add more detail here***
 
@@ -30,7 +42,7 @@ The system is controlled from a Raspberry Pi configured to run continuously as l
 - A `12V` Deep Cycle battery functions as power source when weather conditions are unfavorable.
 - ***todo: add charge controller info***
 
-## Dependencies
+# Dependencies
 - Ruby 2.7
     - `activesupport`
     - `activesupport-core-ext`
@@ -45,7 +57,7 @@ The system is controlled from a Raspberry Pi configured to run continuously as l
   - GNU Compiler Collection
   - libcurl
 
-## Installation & Deployment
+# Installation & Deployment
 ### HARDWARE
 
 There are two hardware stations that are part of this project.
@@ -71,7 +83,7 @@ The core components at the local station:
 ### SOFTWARE
 #### See [PROVISIONING](doc/PROVISIONING.md) for instructions.
 
-## Configuration
+# Configuration
 Once setup, you will most likely want to specify custom parameters for your system. Do so by editing the `config` 
 document in the `admin` database. Add the following values:
 
@@ -87,37 +99,31 @@ document in the `admin` database. Add the following values:
 
   Generate an alert if water is at or below this level in **Millimeters**
   
-## Notes
+# Notes
 ### Conventions
 - **Underscores** are used to delineate words in *keys* (as oppposed to **hyphens**)
 
----
-#### Resources
+# Resources
 ##### CouchDB
-- https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/
 - https://pouchdb.com/2014/05/01/secondary-indexes-have-landed-in-pouchdb.html
 - https://stackoverflow.com/questions/4812235/whats-the-best-way-to-store-datetimes-timestamps-in-couchdb
-- https://developer.ibm.com/dwblog/2015/defensive-coding-mapindex-functions/
 - https://stackoverflow.com/questions/2587345/why-does-date-parse-give-incorrect-results/2587398#2587398
 - [cloud hosting option 1](https://bitnami.com/stack/couchdb/cloud)
-- [cloud hosting option 2](https://www.smileupps.com/store/apps/couchdb)
 
-##### Pi & networking
-- Raspberry Pi site: https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
-- MaxBotix sensor website http://www.maxbotix.com/articles/074.htm
+##### Pi, sensors, and networking
+- Raspberry Pi sensor: https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
 - http://randomnerdtutorials.com/complete-guide-for-ultrasonic-sensor-hc-sr04/
 - http://www.instructables.com/id/Measuring-water-level-with-ultrasonic-sensor/
 - https://www.raspberrypi.org/forums/viewtopic.php?p=376722
 - Troubleshooting connection to Sensor https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=120112
-- networking with raspberry Pi
-  - https://pavelfatin.com/access-your-raspberry-pi-from-anywhere/
-  - https://pihw.wordpress.com/guides/direct-network-connection/
-  - http://stackoverflow.com/questions/16040128/hook-up-raspberry-pi-via-ethernet-to-laptop-without-router
-- networking & SSH materials
-  - BEST GUIDES: https://help.github.com/categories/ssh/
-  - http://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
-  - http://www.rebol.com/docs/ssh-auto-login.html
-  - http://net-ssh.github.io/ssh/v1/chapter-2.html#s2 (ruby interface)
+
+# Contribution
+We would be thrilled to have you considering contributing to our project! Whether you're a seasoned developer or just getting started, your contributions are incredibly valuable and can make a significant impact.
+
+If you have any new features, bug fixes, or enhancements in mind, don't hesitate to dive in and submit a pull request. We welcome all ideas and encourage you to share your creativity and expertise!
+
+# License
+#### We use the GNU v3 public license. See [LICENSE](LICENSE).
 
 [Raspberry Pi 1 model B]: https://www.adafruit.com/product/998
 [Apache CouchDB]: http://couchdb.apache.org

@@ -5,6 +5,7 @@
   "#{d.getHours()}:#{d.getMinutes()}:#{d.getSeconds()}"
   emit dtz, doc.value
 
+# todo: complete this
 (keys, values) ->
   # arr1.map((x, i) => [x, arr2[i]]);
-  rows =
+  # rows =
